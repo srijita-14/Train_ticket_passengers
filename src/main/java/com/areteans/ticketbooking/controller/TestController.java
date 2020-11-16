@@ -37,3 +37,9 @@ public class TestController {
     }
 }
 
+  //  PreparedStatement preparedStatement = c.prepareStatement("insert into detail(name, contact, address) values (?,?,?)");
+  //          preparedStatement.setString(1, "ABC");
+  //                  preparedStatement.setLong(2, 21222);
+   //                 preparedStatement.setString(3, "DEF");
+
+    //                boolean resultSet1 = preparedStatement.execute();
