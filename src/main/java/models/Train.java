@@ -1,5 +1,7 @@
 package models;
 
+import com.areteans.ticketbooking.config.PostgresManager;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -86,22 +88,6 @@ public class Train {
         }
         return newMap ;
     }
-
-    private void init() {  // default listing
-        Train t1 = new Train();
-        Train t2 = new Train();
-        t1.setStartCity("hyd");
-        t1.setEndCity("pune");
-        t1.setTrainFare((double) 250);
-        t1.setTrainNumber((int)123);
-        t1.setNumberOfSeats((int)100);
-        t2.setStartCity("vizag");
-        t2.setEndCity("kolkatha");
-        t2.setTrainNumber((int)111);
-        t2.setNumberOfSeats((int)100);
-        t2.setTrainFare((double)350);
-    }
-
 
 }
 
