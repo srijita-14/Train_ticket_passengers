@@ -1,11 +1,6 @@
-package models;
-
-import com.areteans.ticketbooking.config.PostgresManager;
+package com.areteans.ticketbooking.models;
 
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
 import lombok.Getter;
 import lombok.Setter;
 
