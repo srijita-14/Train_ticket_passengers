@@ -1,5 +1,6 @@
 package com.areteans.ticketbooking.controller;
 
+import com.areteans.ticketbooking.service.PassengerService;
 import com.areteans.ticketbooking.service.TicketService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -17,6 +18,7 @@ import java.util.Map;
 public class BookingController {
    private final TrainService trainService;
    private final TicketService ticketService;
+   private final PassengerService passengerService;
 
     @PostMapping(path = "train", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Map<String, Object> createDetails(@RequestBody Map<String, Object> train) {
@@ -24,8 +26,12 @@ public class BookingController {
     }
 
     @PostMapping(path = "ticket", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Map<String, Object> ticketdetails(@RequestBody Map<String, Object> ticket){
+    public Map<String, Object> ticketDetails(@RequestBody Map<String, Object> ticket){
         return ticketService.save(ticket);
+    }
+    @PostMapping(path = "passengers", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Map<String, Object> passengerDetails(@RequestBody Map<String, Object> passengers){
+        return passengerService.save(passengers);
     }
 }
 
