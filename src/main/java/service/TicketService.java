@@ -1,33 +1,30 @@
 package service;
 
-import com.areteans.ticketbooking.config.PostgresManager;
+import lombok.RequiredArgsConstructor;
 import models.Train;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
+@Service
+@RequiredArgsConstructor
 public class TicketService {
 
-    public Train createTrain(Train train) {
-        jdbcTemplate.update("insert into train(start_city,end_city,train_no,fare) values (?,?,?,?)");
+    private final JdbcTemplate jdbcTemplate;
+    public Map<Train, Object> save(Map<Train, Object> train) {
+        Map<String, Object> sMap = jdbcTemplate.queryForMap("insert into train(train_no,train_name,start_city,end_city,total_seats) values(?,?,?,?,?)",
+                Integer.parseInt((String) train.get("train_no")),
+                train.get("train_name"),
+                train.get("start_city"),
+                train.get("end_city"),
+                Integer.parseInt((String) train.get("total_seats")));
 
-    }
 
-        Connection connection = PostgresManager.getConnection();
-        try{
-            PreparedStatement preparedStatement = connection.prepareStatement("insert into train(name, contact, address, grade, section, percentage) values (?,?,?,?,?,?)");
-            preparedStatement.setString(1, start_city.getName());
-            preparedStatement.execute();
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                return new train(resultSet.getString("name"), resultSet.getLong("studentID"), resultSet.getLong("contact"), null, 0, 'A', 0, null);
-            }
-    } catch(SQLException ex) {
-        System.err.println(ex.getMessage());
+        return train;
     }
-        return null;
-            }
+}
+
 
 
 
