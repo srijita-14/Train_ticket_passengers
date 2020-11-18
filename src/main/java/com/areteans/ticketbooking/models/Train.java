@@ -9,17 +9,17 @@ import lombok.Setter;
 public class Train {
     private String startCity;
     private String endCity;
-    private Double trainFare;
-    private Integer trainNumber;
-    private Integer numberOfSeats;
+    private Double fare;
+    private Integer train_no;
+    private Integer total_seats;
 
 
-    public Train(String startCity, String endCity,Double trainFare,Integer trainNumber, Integer numberOfSeats){
+    public Train(String startCity, String endCity,Double fare,Integer train_no, Integer total_seats){
     this.startCity=startCity;
     this.endCity=endCity;
-    this.trainFare=trainFare;
-    this.trainNumber=trainNumber;
-    this.numberOfSeats=numberOfSeats;
+    this.fare =fare;
+    this.train_no=train_no;
+    this.total_seats =total_seats;
     }
 
 
