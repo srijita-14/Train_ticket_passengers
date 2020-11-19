@@ -10,11 +10,12 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class CancellationService {
     private final JdbcTemplate jdbcTemplateForCancellation;
-    public Map<String, Object> CancelTicket(Integer ticket_no) {
-        return jdbcTemplateForCancellation.queryForMap("Delete from ticket where ticket_no=?", ticket_no);
+
+    public  Map<String, Object> CancelTicket(Integer ticket_no) {
+       return jdbcTemplateForCancellation.queryForMap("Delete from ticket where ticket_no=?", ticket_no);
     }
     public Map<String, Object> CancelPassenger(Integer passenger_id) {
-        return jdbcTemplateForCancellation.queryForMap("Delete  from passengers where passenger_id=?", passenger_id);
+        return jdbcTemplateForCancellation.queryForMap("Delete from passengers where passenger_id=?", passenger_id);
     }
 
 

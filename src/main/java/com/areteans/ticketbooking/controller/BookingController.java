@@ -35,4 +35,4 @@ public class BookingController {
     }
 }
 
-
+//jdbc.update(sql, ps.getNewPaswd(),ps.getUsername() );
