@@ -17,7 +17,7 @@ public class TicketService {
                 Integer.parseInt((String) ticket.get("price")),
                 ticket.get("start_city"),
                 ticket.get("end_city"),
-               // Integer.((String) ticket.get("booking_date")),
+               // ticket.get("booking_date"),
                 Integer.parseInt((String) ticket.get("train_no")));
 
         ticket.put("ticket_no" , rMap.get("ticket_no"));
