@@ -14,7 +14,7 @@ public class CancellationController {
     private final CancellationService cancellationService;
 
     @DeleteMapping(path = "ticket" ,consumes= MediaType.APPLICATION_JSON_VALUE)
-    public Map<String, Object> CancellationOfTicket(@RequestParam(value = "ticket_no")Integer ticket_no){
+    public Map<String, Object> CancellationOfTicket(@RequestParam(value = "ticket_no") Integer ticket_no){
         return this.cancellationService.CancelTicket(ticket_no);
     }
 
