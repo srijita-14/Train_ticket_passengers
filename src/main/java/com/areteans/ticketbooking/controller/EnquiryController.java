@@ -29,4 +29,8 @@ public class EnquiryController {
                                                @RequestParam(value = "end_city")String end_city){
         return this.trainEnquiryService.TrainDetails(start_city,end_city);
     }
+    @GetMapping(path = "passenger")
+    public Map<String, Object> GetPassengerDetails(@RequestParam(value = "passenger_id")Integer passenger_id){
+        return this.ticketEnquiryService.TicketDetails(passenger_id);
+    }
 }
