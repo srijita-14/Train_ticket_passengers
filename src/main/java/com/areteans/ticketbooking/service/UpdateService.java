@@ -12,10 +12,11 @@ public class UpdateService {
 
     private final JdbcTemplate jdbcTemplateForUpdate;
     public Map<String,Object> updatePassengers(Map<String,Object> passengers){
-        jdbcTemplateForUpdate.update("insert into passengers (passenger_name,age,contact_no) values(?,?,?)",
+        jdbcTemplateForUpdate.update("update passengers set passenger_name=?,age=?,contact_no=? where passenger_id = ?",
                 passengers.get("passenger_name"),
                 Integer.parseInt((String) passengers.get("age")),
-                Long.parseLong((String) passengers.get("contact_no")));
+                Long.parseLong((String) passengers.get("contact_no")),
+                Long.parseLong((String) passengers.get("passenger_id")));
 
         return passengers;
     }
