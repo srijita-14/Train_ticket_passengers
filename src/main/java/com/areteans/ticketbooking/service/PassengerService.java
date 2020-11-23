@@ -1,7 +1,6 @@
 package com.areteans.ticketbooking.service;
 
 import com.areteans.ticketbooking.models.PassengerJPA;
-import com.areteans.ticketbooking.models.Passengers;
 import com.areteans.ticketbooking.repository.PassengerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -14,7 +13,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class PassengerService {
     private final JdbcTemplate jdbcTemplateOfPassenger;
-    private  final PassengerRepository passengerRepository;
+    private final PassengerRepository passengerRepository;
+
     public Map<String, Object> save(Map<String, Object> passengers) {
         Map<String, Object> pMap = jdbcTemplateOfPassenger.queryForMap("insert into passengers(passenger_id,passenger_name,age,contact_no,start_city,end_city,ticket_no) values(?,?,?,?,?,?,?) RETURNING passenger_id",
                 Integer.parseInt((String) passengers.get("passenger_id")),
@@ -25,23 +25,16 @@ public class PassengerService {
                 passengers.get("end_city"),
                 Integer.parseInt((String) passengers.get("ticket_no")));
 
-        passengers.put("passenger_id" , pMap.get("passenger_id"));
+        passengers.put("passenger_id", pMap.get("passenger_id"));
         return passengers;
     }
+
     public PassengerJPA savePassenger(PassengerJPA passengerJPA) {
         return passengerRepository.save(passengerJPA);
     }
 
-    /*public PassengerJPA deletePassengerByID(Long id) {
-        Optional<PassengerJPA> emp = passengerRepository.deleteAll();
-        if (emp.isPresent()) {
-            return emp.get();
-        }
-        return null;
-    }*/
+    public void deletePassengerByID(Long id) {
+        passengerRepository.deleteById(id);
 
-
-
-
-
+    }
 }

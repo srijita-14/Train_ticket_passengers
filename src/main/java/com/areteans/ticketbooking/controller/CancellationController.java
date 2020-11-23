@@ -14,17 +14,21 @@ import java.util.Map;
 @RequestMapping(path = "Cancel")
 public class CancellationController {
     private final CancellationService cancellationService;
-    private  final PassengerService passengerService;
+    private final PassengerService passengerService;
+
     @DeleteMapping(value = "ticket/{ticket_no}")
     public void CancellationOfTicket(@PathVariable("ticket_no") Integer ticket_no) {
         cancellationService.CancelTicket(ticket_no);
     }
+
     @DeleteMapping(value = "passengers/{passenger_id}")
-   public void CancellationOfPassenger(@PathVariable("passenger_id") Integer passenger_id) {
+    public void CancellationOfPassenger(@PathVariable("passenger_id") Integer passenger_id) {
         cancellationService.CancelPassenger(passenger_id);
     }
-    /*@DeleteMapping(value = "passenger/{passenger_id}")
-        public  void deletePassengerData(@PathVariable ("passenger_id") Long passenger_id){
-            passengerService.deletePassengerByID(passenger_id);*/
+
+    @DeleteMapping(path = "passenger/{passenger_id}")
+    public void deletePassengerData(@PathVariable("passenger_id") Long passenger_id) {
+        passengerService.deletePassengerByID(passenger_id);
 
     }
+}

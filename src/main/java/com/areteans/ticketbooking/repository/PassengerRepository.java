@@ -10,7 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 public interface PassengerRepository extends JpaRepository<PassengerJPA, Long> {
-    Optional<PassengerJPA> deletePassengerByID(Long id);
+    //void delete(Long id);
+    // Optional<PassengerJPA> deletePassengerByID(Long id);
 
    /* @Query("update Employee set address=$address where employeeID=$id")
     @Modifying
