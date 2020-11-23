@@ -20,6 +20,4 @@ public class UpdateService {
 
         return passengers;
     }
-
-     //to alter a particular row entry????
 }

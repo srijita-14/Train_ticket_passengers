@@ -1,5 +1,6 @@
 package com.areteans.ticketbooking.controller;
 
+import com.areteans.ticketbooking.models.PassengerJPA;
 import com.areteans.ticketbooking.service.PassengerService;
 import com.areteans.ticketbooking.service.TicketService;
 import lombok.RequiredArgsConstructor;
@@ -33,6 +34,12 @@ public class BookingController {
     public Map<String, Object> passengerDetails(@RequestBody Map<String, Object> passengers){
         return passengerService.save(passengers);
     }
+    @PostMapping(path = "passengerJPA", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public PassengerJPA passengerData(@RequestBody PassengerJPA passengerJPA){
+        return passengerService.savePassenger(passengerJPA);
+    }
+
+
 }
 
-//jdbc.update(sql, ps.getNewPaswd(),ps.getUsername() );
+
