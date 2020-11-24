@@ -6,15 +6,15 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Passengers {
-    private String full_name;
+    private String passenger_name;
     private Integer age;
     private String start_city;
     private String end_city;
     private Long contact_no;
     private Integer passenger_id;
 
-    public Passengers(String full_name,Integer age,String start_city,String end_city,Long contact_no,Integer passenger_id){
-        this.full_name=full_name;
+    public Passengers(String passenger_name,Integer age,String start_city,String end_city,Long contact_no,Integer passenger_id){
+        this.passenger_name=passenger_name;
         this.age=age;
         this.start_city=start_city;
         this.end_city=end_city;
