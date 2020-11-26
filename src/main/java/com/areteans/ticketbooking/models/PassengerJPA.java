@@ -17,10 +17,10 @@ import javax.persistence.*;
 public class PassengerJPA {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long passenger_id;
+    private Long passenger_id;
     private String passenger_name;
     private Integer age;
-    private  long contact_no;
+    private Long contact_no;
     private String start_city;
     private String end_city;
 }
