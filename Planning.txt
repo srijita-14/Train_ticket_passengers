@@ -13,7 +13,7 @@ Status Enquiry               CONTROLLER
                              -Passenger (passenger_id,full_name,age,contact_no,start_city,end_city)
                              -Train (start_city,end_city,fare,train_no,total_seats)
 
-                             JPA Classes:
+                             JPA Class:
                              -PassengerJPA
 
                              REPOSITORY:
