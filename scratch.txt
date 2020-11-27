@@ -1,0 +1,33 @@
+OBJECTIVES
+Ticket Booking
+Ticket Cancellation
+Status Enquiry               CONTROLLER
+
+                             -BookingController
+                             -EnquiryController
+                             -UpdateController
+                             -CancellationController
+
+                             MODELS
+                             -Ticket (ticket_no,price,start_city,end_city,train_no)
+                             -Passenger (passenger_id,full_name,age,contact_no,start_city,end_city)
+                             -Train (start_city,end_city,fare,train_no,total_seats)
+
+                             JPA Classes:
+                             -PassengerJPA
+
+                             REPOSITORY:
+                             -PassengerRepository
+
+                             SERVICE
+                             -TrainService
+                             -TicketService
+                             -PassengerService
+                             -CancellationService,UpdateService,CommonService
+
+                        //(Enquiry Service)
+                             -TicketEnquiryService(ticket_no) , TrainEnquiryService (start_city,end_city),
+                              PassengerEnquiryService(passenger_id)
+
+
+
