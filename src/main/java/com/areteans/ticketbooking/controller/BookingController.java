@@ -7,10 +7,7 @@ import com.areteans.ticketbooking.service.PassengerService;
 import com.areteans.ticketbooking.service.TicketService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.areteans.ticketbooking.service.TrainService;
 
 import java.util.Map;
@@ -49,7 +46,10 @@ public class BookingController {
     public Map<String, Object> createPassenger(@RequestBody Map<String, Object> passengerJPA) {
         return commonService.createPassengerJpa(passengerJPA);
     }
-
+    @PostMapping(path = "seatBooking", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Ticket reserveSeat ( @RequestBody Ticket ticket) {
+        return ticketService.seatBooking(ticket);
+    }
 
 }
 
