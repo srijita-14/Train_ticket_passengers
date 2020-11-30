@@ -1,33 +1,89 @@
 OBJECTIVES
 Ticket Booking
 Ticket Cancellation
-Status Enquiry               CONTROLLER
+Status Enquiry                   CONTROLLER
 
-                             -BookingController
-                             -EnquiryController
-                             -UpdateController
-                             -CancellationController
-
-                             MODELS
-                             -Ticket (ticket_no,price,start_city,end_city,train_no)
-                             -Passenger (passenger_id,full_name,age,contact_no,start_city,end_city)
-                             -Train (start_city,end_city,fare,train_no,total_seats)
-
-                             JPA Class:
-                             -PassengerJPA
-
-                             REPOSITORY:
-                             -PassengerRepository
-
-                             SERVICE
-                             -TrainService
-                             -TicketService
-                             -PassengerService
-                             -CancellationService,UpdateService,CommonService
-
-                        //(Enquiry Service)
-                             -TicketEnquiryService(ticket_no) , TrainEnquiryService (start_city,end_city),
-                              PassengerEnquiryService(passenger_id)
+                                -BookingController
+                                 endpoints- @postMappings :
+                                                            createDetails
+                                                            ticketDetails
+                                                            passengerDetails
+                                                            passengerData (using JPA)
+                                                            nestedPassTick
+                                                            createPassenger (using JPA)
+                                                            seatBooking
+                                                            reserveSeat( for thread implementation)
 
 
+                                 -CancellationController
+                                 endpoints- @DeleteMapping :
+                                                             cancelTicket
+                                                             cancelPassenger
+                                                             deletePassenger (using JPA)
 
+
+                                -EnquiryController
+                                 endpoints- @GetMapping :
+                                                            getTicketDetails
+                                                            getTrainDetails
+                                                            getPassengerDetails
+                                                            searchPassenger (using JPA)
+
+                                -UpdateController
+                                 endpoints- @PutMapping :
+                                                            passengerDetails
+
+
+
+
+                                MODELS
+                                DATA MODEL:
+                                -Ticket (ticket_no,price,start_city,end_city,train_no)
+                                -Passenger (passenger_id,full_name,age,contact_no,start_city,end_city)
+                                -Train (start_city,end_city,fare,train_no,total_seats)
+
+
+
+                                SERVICE
+                                -TrainService
+                                -TicketService
+                                -ReserveService
+                                -PassengerService
+                                -CancellationService,UpdateService,CommonService
+                                -TrainService :
+                                                save
+
+                                -TicketService :
+                                                save
+                                                seatBooking( implementation of Threads)
+
+                                -ReserveService :
+                                                 Run (implements Runnable)
+
+                                -PassengerService :
+                                                    save
+                                                    savePassenger (using JPA)
+
+                                -CancellationService :
+                                                        cancelTicket
+                                                        cancelPassenger
+                                                        deletePassenger (using JPA)
+                                -UpdateService :
+                                                        updatePassenger
+
+                                -CommonService :
+                                                        create
+                                                        createPassengerJpa (using JPA)
+
+
+                                -TicketEnquiryService(using ticket_no):
+                                                                        ticketDetails
+
+                                -TrainEnquiryService (using start_city,end_city) :
+                                                                                   trainDetails
+
+                                -TicketEnquiryService(ticket_no) , TrainEnquiryService (start_city,end_city),
+                                 PassengerEnquiryService(passenger_id)
+                                -PassengerEnquiryService( using passenger_id) :
+                                                                                    passengerDetails
+                                                                                    getPassengerByID

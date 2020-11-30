@@ -46,7 +46,6 @@ public class TicketService {
         //log.info(ReserveServiceEntity.getBody().toString());
         //log.info(T1.getName());
         //log.info(T2.getName());
-
         }
 
     }
