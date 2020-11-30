@@ -9,6 +9,8 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Map;
 import java.util.Date;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @Service
 @RequiredArgsConstructor
@@ -29,7 +31,7 @@ public class TicketService {
         return ticket;
     }
 
-    public Ticket seatBooking(Ticket ticket){
+   public void seatBooking(){
         ReserveService reserve= new ReserveService();
         //RestTemplate restTemplate = new RestTemplate();
             Thread T1=new Thread(reserve);
@@ -38,12 +40,12 @@ public class TicketService {
             T2.setName("Srijita");
             T1.start();
             T2.start();
+       ExecutorService executorService = Executors.newFixedThreadPool(10);
+       executorService.submit(reserve);
        // ResponseEntity<Ticket> ReserveServiceEntity = restTemplate.postForEntity("http://localhost:8080/booking/ticket/", ticket, Ticket.class);
         //log.info(ReserveServiceEntity.getBody().toString());
-        log.info(T1.getName());
-        log.info(T2.getName());
-
-        return ticket;
+        //log.info(T1.getName());
+        //log.info(T2.getName());
 
         }
 

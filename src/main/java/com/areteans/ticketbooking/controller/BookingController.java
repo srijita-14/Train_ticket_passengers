@@ -46,11 +46,10 @@ public class BookingController {
     public Map<String, Object> createPassenger(@RequestBody Map<String, Object> passengerJPA) {
         return commonService.createPassengerJpa(passengerJPA);
     }
-    @PostMapping(path = "seatBooking", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Ticket reserveSeat ( @RequestBody Ticket ticket) {
-        return ticketService.seatBooking(ticket);
+    @PostMapping (path = "seatBooking")
+    public void reserveSeat () {
+        ticketService.seatBooking();
     }
-
 }
 
 

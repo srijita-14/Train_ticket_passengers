@@ -6,7 +6,11 @@ import lombok.extern.slf4j.Slf4j;
 public class ReserveService implements Runnable {
     private Integer available_berth = 1;
     private Integer wanted_berth;
+    public int i;
 
+    public ReserveService() {
+        wanted_berth=i;
+    }
     @Override
     public void run() {
         synchronized (this) {
